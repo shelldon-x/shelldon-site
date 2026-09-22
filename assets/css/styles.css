@@ -1612,3 +1612,18 @@ details[open] summary > span {
     transform: none;
   }
 }
+
+/* Official project logos: retain source proportions and brand colors. */
+.project-cover .project-logo {
+  display: block;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.project-cover .caracois-logo { width: 86%; max-width: 420px; }
+.project-cover .bee-logo { max-width: 490px; }
+.caracois-art {
+  color: #4e3936;
+  background: linear-gradient(125deg, #eee6dc, #d3c6b8);
+}
