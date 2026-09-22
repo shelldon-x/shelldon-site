@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+  <meta charset="utf-8" /><meta name="robots" content="noindex" /><title>
+    Shelldon — fonte do cartão social</title
+  ><style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: #0c0d10;
+      color: #f2f1f5;
+      font-family: Arial, sans-serif;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+    }
+    .photo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 665px;
+      height: 630px;
+      object-fit: cover;
+      filter: saturate(0.65) brightness(0.78);
+    }
+    .mask {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, #0c0d10 35%, #0c0d10d0 45%, transparent 73%),
+        linear-gradient(0deg, #0c0d10, transparent 28%);
+    }
+    .content {
+      position: relative;
+      padding: 48px 60px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 23px;
+      letter-spacing: -1px;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+    }
+    .eyebrow {
+      font:
+        12px Consolas,
+        monospace;
+      letter-spacing: 2px;
+      color: #b3a9ff;
+      margin-top: 42px;
+    }
+    h1 {
+      font-size: 104px;
+      line-height: 0.96;
+      font-weight: 500;
+      letter-spacing: -6px;
+      margin: 24px 0;
+    }
+    h1 span {
+      color: #c7c7d0;
+    }
+    h1 b {
+      font-weight: 500;
+      color: #b3a9ff;
+    }
+    .tag {
+      font-size: 24px;
+      margin: 25px 0;
+      color: #d2d1dc;
+    }
+    .bottom {
+      position: absolute;
+      left: 60px;
+      right: 60px;
+      bottom: 35px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ffffff30;
+      padding-top: 24px;
+      font:
+        14px Consolas,
+        monospace;
+      letter-spacing: 2px;
+    }
+    .bottom span {
+      color: #b3a9ff;
+    }
+    .domain {
+      font:
+        13px Arial,
+        sans-serif;
+      letter-spacing: 0;
+      color: #c6c5cd;
+    }</style
+  ><img class="photo" src="../assets/images/portrait-960.jpg" alt="" />
+  <div class="mask"></div>
+  <div class="content">
+    <div class="brand">
+      <img src="../assets/icons/monogram.svg" alt="" />shelldon.
+    </div>
+    <p class="eyebrow">QUALIDADE × TECNOLOGIA × NEGÓCIOS</p>
+    <h1>
+      Shelldon<br /><span>Linhares<b>.</b></span>
+    </h1>
+    <p class="tag">Critério para construir. Visão para ir além.</p>
+  </div>
+  <div class="bottom">
+    <div>BUILD. <span>TEST.</span> IMPROVE.</div>
+    <div class="domain">shelldon.com.br</div>
+  </div>
+</html>

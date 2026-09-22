@@ -1,0 +1,55 @@
+// Servidor local, sem dependências. Execute: node tools/serve.mjs
+import http from "node:http";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const port = Number(process.env.PORT || 4173);
+const types = {
+  ".html": "text/html; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".svg": "image/svg+xml",
+  ".jpg": "image/jpeg",
+  ".png": "image/png",
+  ".webp": "image/webp",
+  ".avif": "image/avif",
+  ".xml": "application/xml",
+  ".txt": "text/plain; charset=utf-8",
+  ".webmanifest": "application/manifest+json",
+};
+http
+  .createServer((req, res) => {
+    let pathname;
+    try {
+      pathname = decodeURIComponent(
+        new URL(req.url, "http://localhost").pathname,
+      );
+    } catch {
+      res.writeHead(400);
+      res.end();
+      return;
+    }
+    let file = path.resolve(
+      root,
+      "." + (pathname === "/" ? "/index.html" : pathname),
+    );
+    if (!file.startsWith(root + path.sep)) {
+      res.writeHead(403);
+      res.end();
+      return;
+    }
+    let status = 200;
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
+      file = path.join(root, "404.html");
+      status = 404;
+    }
+    res.writeHead(status, {
+      "Content-Type": types[path.extname(file)] || "application/octet-stream",
+      "Cache-Control": "no-store",
+    });
+    fs.createReadStream(file).pipe(res);
+  })
+  .listen(port, "127.0.0.1", () =>
+    console.log(`Shelldon — http://127.0.0.1:${port}`),
+  );
